@@ -33,14 +33,16 @@
 
  		<form method="POST" action="/submit-post">
  			<label for="post">New Post</label>
- 			<textarea name="[post]content"></textarea>
+ 			<textarea name="[post]content" maxlength="150"></textarea>
  			<input type="submit">
  		</form>
 
  		<div>
 	 		<% @pastPost.each do |post| %>
+	 		<a href="user/<%= post.user.name %>"><%=post.user.name%></a>
 	 		<p><%= post.content %></p>
 	 		<% end %>
 		</div>
+		<%= session[:user_id]%>
 	</body>
 </html>

@@ -19,6 +19,7 @@ end
 get '/profile' do
   @session=session[:user_id]
   @userprofile=Profile.where("user_id" => @session).first
+  @userPost= Post.where("user_id" => @session)
   erb :profile
 end
 
@@ -34,7 +35,7 @@ end
 
 post '/sign-in' do
   @user = User.where(name: params[:username]).first
-  if @user.password==params[:password]
+  if @user && @user.password==params[:password]
     session[:user_id]=@user.id
     flash[:notice] = "You are signed in."
     redirect '/'
@@ -75,7 +76,15 @@ post '/edit' do
   redirect '/profile'
 end
 
+post '/delete' do
+  Profile.where("user_id" => session[:user_id]).first.destroy
+  User.where("id" => session[:user_id]).first.destroy
+  redirect '/'
+  Post.destroy_all("user_id" => session[:user_id])
+end
 
+post 'user/?' do
+end
 
 
 

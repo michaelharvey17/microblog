@@ -19,6 +19,12 @@
       <input type="submit">
     </form>
 
+    <div>
+      <% @userPost.each do |post| %>
+      <p><%= post.content %></p>
+      <% end %>
+    </div>
+
 
 
 
