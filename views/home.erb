@@ -8,7 +8,35 @@
 		<title></title>
 	</head>
 	<body>
-		<p>test</p>
+		<form method="POST" action= "/sign-in">
+			<label for="username">Username</label>
+			<input type="text" name="username">
+			<label for="password">Password</label>
+			<input type="password" name="password">
+			<input type="submit">
+		</form>
+		<form method="POST" action="/log-out">
+			<input type="submit">
+		</form>
+
+		<% if flash[:notice] %>
+		 <div class="flash notice">
+		 <%=flash[:notice] %>
+		 </div>
+		 <% end %>
+		 <% if flash[:alert] %>
+		 <div class="flash alert">
+		 <%=flash[:alert] %>
+		 </div>
+ 		<% end %>
+
+ 		<form method="POST" action="/submit-post">
+ 			<label for="post">New Post</label>
+ 			<textarea name="[post]content"></textarea>
+ 			<input type="submit">
+ 		</form>
+
+ 		
 		
 	</body>
 </html>

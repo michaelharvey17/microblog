@@ -28,3 +28,42 @@ post '/signup' do
   session[:user_id]=@user.id
   redirect '/'
 end
+
+post '/sign-in' do
+  @user = User.where(name: params[:username]).first
+  if @user.password==params[:password]
+    session[:user_id]=@user.id
+    flash[:notice] = "You are signed in."
+    redirect '/'
+  else
+    flash[:alert] = "There was a problem signing you in."
+    redirect '/'
+  end
+  puts session[:user_id]
+end
+
+post '/log-out' do
+  session.clear
+  redirect '/'
+end
+
+post '/submit-post' do
+  if session[:user_id]
+    @post=Post.new(params[:post])
+    @post[:user_id]=session[:user_id]
+    @post[:datetime]=Time.now
+    @post.save
+  else
+    puts "not logged in"
+  end
+  redirect '/'
+end
+
+
+
+
+
+
+
+
+
