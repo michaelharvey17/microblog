@@ -8,6 +8,7 @@ enable :sessions
 use Rack::Flash, :sweep => true
 
 get '/' do
+  @pastPost = Post.last(10)
   erb :home
 end
 
@@ -58,6 +59,8 @@ post '/submit-post' do
   end
   redirect '/'
 end
+
+
 
 
 

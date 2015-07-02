@@ -36,7 +36,10 @@
  			<input type="submit">
  		</form>
 
- 		
-		
+ 		<div>
+	 		<% @pastPost.each do |post| %>
+	 		<p><%= post.content %></p>
+	 		<% end %>
+		</div>
 	</body>
 </html>
