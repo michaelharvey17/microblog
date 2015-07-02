@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href=".css">
+    <script src='http://code.jquery.com/jquery-2.1.4.js'></script>
+    <script src='.js'></script>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <div>
+      <p><%=@userprofile[:fname].to_s%> <%=@userprofile[:lname].to_s%></p>
+      <p><%=@userprofile[:age]%></p>
+      <p><%=@userprofile[:email]%></p>
+      <p><%=@userprofile[:datetime].strftime("%c")%></p>
+    </div>
+
+    <form method="POST" action= "/update">
+      <input type="submit">
+    </form>
+
+
+
+
+
+
+
+
+  </body>
+</html>

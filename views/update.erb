@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href=".css">
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <form method="POST" action= "/edit">
+        <label for="fname">First name</label>
+        <input type="text" name="[profile]fname" value="<%=@userprofile[:fname] %>">
+        <label for="lname">Last name</label>
+        <input type="text" name="[profile]lname" value="<%=@userprofile[:lname] %>">
+        <label for="age">Age</label>
+        <input type="integer" name="[profile]age" value="<%=@userprofile[:age] %>">
+        <label for="email">Email</label>
+        <input type="text" name="[profile]email" value="<%=@userprofile[:email] %>">
+        <input type="submit">
+    </form>
+
+  </body>
+</html>

@@ -17,6 +17,8 @@ get '/sign_up' do
 end
 
 get '/profile' do
+  @session=session[:user_id]
+  @userprofile=Profile.where("user_id" => @session).first
   erb :profile
 end
 
@@ -60,7 +62,18 @@ post '/submit-post' do
   redirect '/'
 end
 
+post '/update' do
+  @session=session[:user_id]
+  @userprofile=Profile.where("user_id" => @session).first
+  erb :update
+end
 
+post '/edit' do
+  @session=session[:user_id]
+  @profile=Profile.where("user_id" => @session).first
+  @profile.update_attributes(params[:profile])
+  redirect '/profile'
+end
 
 
 
