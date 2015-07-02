@@ -83,7 +83,7 @@ post '/delete' do
   Post.destroy_all("user_id" => session[:user_id])
 end
 
-post 'user/?' do
+post '/Post.user.name' do
 end
 
 

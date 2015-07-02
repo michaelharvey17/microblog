@@ -39,7 +39,8 @@
 
  		<div>
 	 		<% @pastPost.each do |post| %>
-	 		<a href="user/<%= post.user.name %>"><%=post.user.name%></a>
+	 		<% pname=post.user.name %>
+	 		<a href="user/?user=#{<%= post.user.name %>}"><%=post.user.name%></a>
 	 		<p><%= post.content %></p>
 	 		<% end %>
 		</div>
