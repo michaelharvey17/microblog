@@ -41,6 +41,7 @@
 	 		<% @pastPost.each do |post| %>
 	 		<% pname=post.user.name %>
 	 		<a href="user/?user=#{<%= post.user.name %>}"><%=post.user.name%></a>
+	 		<p><%=post.datetime.strftime("%c") %></p>
 	 		<p><%= post.content %></p>
 	 		<% end %>
 		</div>
