@@ -83,7 +83,11 @@ post '/delete' do
   Post.destroy_all("user_id" => session[:user_id])
 end
 
-post '/Post.user.name' do
+get '/user/:name' do
+  @post=User.find_by(name: params[:name]).id
+  @userprofile=Profile.find_by(user_id: @post)
+  @userPost= Post.where(user_id: @post)
+  erb :userprofile
 end
 
 

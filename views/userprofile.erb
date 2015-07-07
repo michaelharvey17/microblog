@@ -1,0 +1,24 @@
+<!Doctype html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src=''></script>
+		<meta charset="UTF-8">
+		<title><%=User.find_by(id: @post).name %></title>
+	</head>
+	<body>
+		<div>
+	      <p><%=@userprofile[:fname].to_s%> <%=@userprofile[:lname].to_s%></p>
+	      <p><%=@userprofile[:age]%></p>
+	      <p><%=@userprofile[:email]%></p>
+	      <p><%=@userprofile[:datetime].strftime("%c")%></p>
+    	</div>
+
+    	<div>
+	      <% @userPost.each do |post| %>
+	      <p><%= post.content %></p>
+	      <% end %>
+	    </div>
+	</body>
+</html>
